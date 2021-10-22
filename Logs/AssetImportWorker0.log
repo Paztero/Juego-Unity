@@ -333,3 +333,20 @@ System memory in use after: 112.7 MB.
 Unloading 49 unused Assets to reduce memory usage. Loaded Objects now: 3045.
 Total: 3.883400 ms (FindLiveObjects: 0.219300 ms CreateObjectMapping: 0.104900 ms MarkObjects: 2.083300 ms  DeleteObjects: 1.474600 ms)
 
+========================================================================
+Received Import Request.
+  Time since last request: 2012.639361 seconds.
+  path: Assets/Resources/DOTweenSettings.asset
+  artifactKey: Guid(5d5306eef89df2d43a67ca211e685f78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/DOTweenSettings.asset using Guid(5d5306eef89df2d43a67ca211e685f78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b647ed57aeeeab4bcf4b2920a6de2ac4') in 0.046643 seconds
+  Import took 0.051323 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.157678 seconds.
+  path: Assets/Plugins/Demigiant
+  artifactKey: Guid(5b48030fcbba6494abfc56db2777377e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Demigiant using Guid(5b48030fcbba6494abfc56db2777377e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd4ad9aa527286ca7bc7741af753f1b55') in 0.007718 seconds
+  Import took 0.011540 seconds .
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
