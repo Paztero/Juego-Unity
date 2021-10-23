@@ -19,6 +19,7 @@ public class MoverPersonaje : MonoBehaviour
     
     void Update()
     {
+        //Mueve el personaje de izquierda a derecha
         if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
             personajeTransform.Translate((Vector2.right * Time.deltaTime * speedPersonaje));
@@ -28,11 +29,15 @@ public class MoverPersonaje : MonoBehaviour
             personajeTransform.Translate((Vector2.left * Time.deltaTime * speedPersonaje));
         }
         
+        //Permite al personaje saltar
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             Jump();
         }
-
+        if (!isGrounded && (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)))
+        {
+            rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultipler + 1) * Time.deltaTime;
+        }
         if (rb.velocity.y < 0)
         {
             rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultipler - 1) * Time.deltaTime;
@@ -47,7 +52,6 @@ public class MoverPersonaje : MonoBehaviour
     {
         rb.velocity = Vector2.up * strenghJump; 
     }
-
     private void OnTriggerStay2D(Collider2D other)
     {
         if (other.CompareTag("Floor"))
@@ -55,7 +59,6 @@ public class MoverPersonaje : MonoBehaviour
             isGrounded = true;
         }
     }
-
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Floor"))
