@@ -54,16 +54,28 @@ public class MoverPersonaje : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.CompareTag("Floor"))
+        if (other.CompareTag("Floor") || other.CompareTag("PlataformaMovil"))
         {
             isGrounded = true;
         }
+        if (other.CompareTag("PlataformaMovil"))
+        {
+            transform.parent = other.transform; //Arreglar linea de codigo
+        }
     }
+
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Floor"))
+        if (other.CompareTag("Floor") || other.CompareTag("PlataformaMovil"))
         {
             isGrounded = false;
         }
+
+        if (other.CompareTag("PlataformaMovil"))
+        {
+            transform.parent = null;
+        }
     }
+
+    
 }
