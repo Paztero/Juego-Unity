@@ -12,7 +12,7 @@ public class HudManager : MonoBehaviour
     {
         SceneManager.LoadScene("Nivel 1");
     }
-    
+
     // Botones en el menu de pausa
     // Boton de pausa
     public void MenuPausa()
@@ -31,15 +31,20 @@ public class HudManager : MonoBehaviour
     // Boton para reiniciar nivel
     public void ReniciarNivel()
     {
+        PlayerPrefs.SetFloat("checkPointPositionX", 0);
+        PlayerPrefs.SetFloat("checkPointPositionY", 0);
+        Time.timeScale = 1;
+        menuPausa.SetActive(false);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-    
+
     // Boton para ir al menu principal
     public void IrMenuPrincipal()
     {
         SceneManager.LoadScene("MainMenu");
     }
 
+    // Botones generales
     // Boton para salir del juego
     public void SalirJuego()
     {

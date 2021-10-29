@@ -2,15 +2,17 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RespawnPersonaje : MonoBehaviour
 {
     private float checkPointPositionX, checkPointPositionY;
-    /*public GameObject[] vida;
-    private int life = 5;*/
+    public GameObject[] vida;
+    private int life;
 
     private void Start()
     {
+        life = vida.Length;
         if (PlayerPrefs.GetFloat("checkPointPositionX") != 0)
         {
             transform.position = (new Vector2(PlayerPrefs.GetFloat("checkPointPositionX"),
@@ -24,11 +26,13 @@ public class RespawnPersonaje : MonoBehaviour
         PlayerPrefs.SetFloat("checkPointPositionY", y);
     }
     
-    /*private void Update()
+    public void PlayerDamaged()
     {
+        life--;
         if(life < 1)
         {
             Destroy(vida[0].gameObject);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         else if(life < 2)
         {
@@ -47,9 +51,4 @@ public class RespawnPersonaje : MonoBehaviour
             Destroy(vida[4].gameObject);
         }
     }
-
-    public void PlayerDamaged()
-    {
-        life--;
-    }*/
 }
