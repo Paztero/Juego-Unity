@@ -28,6 +28,12 @@ public class HudManager : MonoBehaviour
         menuPausa.SetActive(false);
     }
     
+    // Boton para reiniciar nivel
+    public void ReniciarNivel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    
     // Boton para ir al menu principal
     public void IrMenuPrincipal()
     {
