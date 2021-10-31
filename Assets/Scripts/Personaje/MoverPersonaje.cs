@@ -16,6 +16,8 @@ public class MoverPersonaje : MonoBehaviour
     public float fallMultipler = 2.5f;
     public float lowJumpMultipler = 2;
     public bool isGrounded = true;
+    public float doubleJumpSpeed = 2.5f;
+    public bool canDoubleJump;
     
     void Update()
     {
@@ -27,24 +29,6 @@ public class MoverPersonaje : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
             personajeTransform.Translate((Vector2.left * Time.deltaTime * speedPersonaje));
-        }
-        
-        //Permite al personaje saltar
-        if (Input.GetButtonDown("Jump") && isGrounded)
-        {
-            Jump();
-        }
-        if (!isGrounded && (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)))
-        {
-            rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultipler + 1) * Time.deltaTime;
-        }
-        if (rb.velocity.y < 0)
-        {
-            rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultipler - 1) * Time.deltaTime;
-        }
-        else if (rb.velocity.y > 0 && !Input.GetButton("Jump"))
-        {
-            rb.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultipler - 1) * Time.deltaTime;
         }
     }
 
@@ -76,6 +60,40 @@ public class MoverPersonaje : MonoBehaviour
             transform.parent = null;
         }
     }
-
-    
+    // salto normal y doble salto
+    private void Update()
+    {
+        if (Input.GetButtonDown("Jump"))
+        {
+            if (isGrounded)
+            {
+                canDoubleJump = true;
+                Jump();  
+            }
+            else
+            {
+                if ((Input.GetButtonDown("Jump")))
+                {
+                    if (canDoubleJump)
+                    {
+                        rb.velocity = Vector2.up * doubleJumpSpeed;
+                        canDoubleJump = false;
+                    }
+                }
+            }
+        }
+    {
+        Jump();
+    }
+if (!isGrounded && (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)))
+{
+    rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultipler + 1) * Time.deltaTime;
+}
+if (rb.velocity.y < 0)
+{
+    rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultipler - 1) * Time.deltaTime;
+}
+else if (rb.velocity.y > 0 && !Input.GetButton("Jump"))
+{
+    rb.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultipler - 1) * Time.deltaTime;
 }
