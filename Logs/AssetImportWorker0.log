@@ -114,6 +114,7 @@ Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Refreshing native plugins compatible for Editor in 0.51 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
+<<<<<<< HEAD
 Mono: successfully reloaded assembly
 - Completed reload, in  1.048 seconds
 Platform modules already initialized, skipping
@@ -183,3 +184,12 @@ Start importing Assets/Scenes/Escenarios de pruebas/PruebasGary.unity using Guid
   Import took 0.034013 seconds .
 
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file
+=======
+Unloading 2616 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 114.7 MB.
+System memory in use after: 114.8 MB.
+
+Unloading 23 unused Assets to reduce memory usage. Loaded Objects now: 3104.
+Total: 2.663200 ms (FindLiveObjects: 0.293600 ms CreateObjectMapping: 0.128700 ms MarkObjects: 2.119700 ms  DeleteObjects: 0.120000 ms)
+
+>>>>>>> parent of 0933ff7 (Daño y cambio en los botones)
